@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+#If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 ####### BASH PROFILE #######
 #export HOME_FOLDER="/home/$USER/"
 
-export PATH=/usr/local/cuda-8.0/bin:$PATH
+export PATH=/usr/local/cuda-8.0/bin:$PATH:~/.local/bin
 
 # I don't think this is necessary with installation from apt as opposed 
 # to .run but just to be safe...
@@ -112,6 +112,7 @@ export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LPATH=/usr/lib/nvidia-384:$LPATH
 export LIBRARY_PATH=/usr/lib/nvidia-384:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/nvidia-384:/usr/local/cuda/lib64:/usr/local/cuda/lib:$LD_LIBRARY_PATH
+export CUDA_HOME=/usr/local/cuda
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -127,3 +128,19 @@ export LD_LIBRARY_PATH=/usr/lib/nvidia-384:/usr/local/cuda/lib64:/usr/local/cuda
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#alias python='/home/balloch/anaconda3/bin/python3.6'
+#alias python3='/home/balloch/anaconda3/bin/python3.6'
+#alias python2='/usr/bin/python'
+
+exit() {
+    if [[ -z $TMUX ]]; then
+        builtin exit
+    else
+        tmux detach
+    fi
+}
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

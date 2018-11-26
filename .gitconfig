@@ -1,0 +1,5 @@
+[user]
+	email = theincubus@gmail.com
+	name = Jonathan Balloch
+[core]
+	excludesfile = /home/balloch/.gitignore_global
