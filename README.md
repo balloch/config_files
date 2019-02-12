@@ -4,20 +4,30 @@ Different custom configuration files and new computer startup
 ## Prep
 Install necessities
 
-`sudo apt update`
-`sudo apt install build-essential pip pip3 git curl wget xclip openssh-server`
+### 14.04 and 16.04
+```
+sudo apt update
+sudo apt install build-essential pip pip3 git curl wget xclip openssh-server
+```
+
+### 18.04
+```
+sudo apt update
+sudo apt install build-essential python-pip curl wget git xclip openssh-server
+```
 
 Do Docker separately
-`sudo apt install apt-transport-https ca-certificates software-properties-common`
-`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-`sudo apt update`
-`sudo apt install docker-ce`
-`sudo apt update`
+```
+sudo apt install apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce
+sudo apt update
+```
 
 `sudo usermod -aG docker $USER`
-(You will need to log out after this step for docker to work):w
-
+(You will need to log out after this step for docker to work)
 
 
 ## ZSH And Oh My ZSH
