@@ -60,7 +60,8 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git ssh-agent docker python pyenv tmux virtualenvwrapper zsh-syntax-highlighting
+#  git ssh-agent docker python pyenv tmux virtualenvwrapper 
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -87,9 +88,12 @@ if which tmux 2>&1 >/dev/null; then
   fi
 fi
 
-# For local powerline
-if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-    source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# For local powerline from pip install with --user
+#if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
+if [[ -r ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    source ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 # For system wide powerline
@@ -104,14 +108,15 @@ source $ZSH/oh-my-zsh.sh
 ####### BASH PROFILE #######
 #export HOME_FOLDER="/home/$USER/"
 
-export PATH=/usr/local/cuda-8.0/bin:$PATH:~/.local/bin
+#export PATH=/usr/local/cuda-8.0/bin:$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin
 
 # I don't think this is necessary with installation from apt as opposed 
 # to .run but just to be safe...
-# export PATH=/usr/local/cuda/bin:$PATH
-export LPATH=/usr/lib/nvidia-384:$LPATH
-export LIBRARY_PATH=/usr/lib/nvidia-384:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/nvidia-384:/usr/local/cuda/lib64:/usr/local/cuda/lib:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda/bin:$PATH
+#export LPATH=/usr/lib/nvidia-384:$LPATH
+#export LIBRARY_PATH=/usr/lib/nvidia-384:$LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib:$LD_LIBRARY_PATH
 export CUDA_HOME=/usr/local/cuda
 
 # Compilation flags
@@ -128,7 +133,9 @@ export CUDA_HOME=/usr/local/cuda
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+alias python=python3
+
 #alias python='/home/balloch/anaconda3/bin/python3.6'
 #alias python3='/home/balloch/anaconda3/bin/python3.6'
 #alias python2='/usr/bin/python'
@@ -142,5 +149,5 @@ exit() {
 }
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
