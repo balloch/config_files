@@ -4,20 +4,30 @@ Different custom configuration files and new computer startup
 ## Prep
 Install necessities
 
-`sudo apt update`
-`sudo apt install build-essential pip pip3 git curl wget xclip openssh-server`
+### 14.04 and 16.04
+```
+sudo apt update
+sudo apt install build-essential pip pip3 git curl wget xclip openssh-server
+```
+
+### 18.04
+```
+sudo apt update
+sudo apt install build-essential python-pip curl wget git xclip openssh-server
+```
 
 Do Docker separately
-`sudo apt install apt-transport-https ca-certificates software-properties-common`
-`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-`sudo apt update`
-`sudo apt install docker-ce`
-`sudo apt update`
+```
+sudo apt install apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce
+sudo apt update
+```
 
 `sudo usermod -aG docker $USER`
-(You will need to log out after this step for docker to work):w
-
+(You will need to log out after this step for docker to work)
 
 
 ## ZSH And Oh My ZSH
@@ -46,19 +56,22 @@ fi`
 
 Install font:
 
-`cd`
-`wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf`
-`sudo mv PowerlineSymbols.otf /usr/share/fonts/`
-`mkdir ~/.fonts #don't know if this is necessary, compat. for 16.04`
-`cp /usr/share/fonts/PowerlineSymbols.otf ~/.fonts #don't know if this is necessary, compat. for 16.04`
-`fc-cache -vf ~/.fonts #don't know if this is necessary, compat. for 16.04`
-`sudo fc-cache -vf`
-`sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/`
+```
+cd
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
+mkdir ~/.fonts #don't know if this is necessary, compat. for 16.04
+cp /usr/share/fonts/PowerlineSymbols.otf ~/.fonts #don't know if this is necessary, compat. for 16.04
+fc-cache -vf ~/.fonts #don't know if this is necessary, compat. for 16.04
+sudo fc-cache -vf
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+```
 
-`wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf`
-`mv PowerlineSymbols.otf ~/.fonts/`
-`mkdir -p .config/fontconfig/conf.d`
-
+```
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+mv PowerlineSymbols.otf ~/.fonts/
+mkdir -p .config/fontconfig/conf.d
+```
 
 ## SSH Setup
 Make sure that users who are sudo should be
