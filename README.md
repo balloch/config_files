@@ -44,6 +44,12 @@ Then change shell:
 
 `chsh -s $(which zsh)`
 
+To ensure that you don't have any errors with your syntax highlighting run: 
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+```
 ### powerline fonts procedure:
 
 `pip install --user git+git://github.com/Lokaltog/powerline`
