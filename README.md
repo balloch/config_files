@@ -4,16 +4,22 @@ Different custom configuration files and new computer startup
 ## Prep
 Install necessities
 
-### 14.04 and 16.04
+### 18.04
+Mandatory:
+```
+sudo apt update
+sudo apt install build-essential python-pip curl wget git xclip openssh-server zip unzip bc imagemagick libjpeg-turbo8-dev feh arandr arc-theme rofi 
+```
+possibly optional:
+```
+sudo apt install lxappearance gnome-tweak-tool libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev libev-dev
+```
+
+
+### 14.04 and 16.04 [OLD: no longer being updated]
 ```
 sudo apt update
 sudo apt install build-essential pip pip3 git curl wget xclip openssh-server
-```
-
-### 18.04
-```
-sudo apt update
-sudo apt install build-essential python-pip curl wget git xclip openssh-server
 ```
 
 Do Docker separately
@@ -104,8 +110,16 @@ Now get rid of your password authentication and restart the server
 *IF 16.04 OR HIGHER*
 `sudo systemctl restart ssh`
 
+## i3 Setup
+This is specifically for i3 setup stuff, but there are some previous sections that start to add things (like, example, `apt install i3`).
 
-
+For [playerctl](https://packages.debian.org/buster/playerctl), which I am not entirely sure what it is necessary for/not for, but spotify is the focus:
+```
+wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
+wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb
+sudo dpkg -i libplayerctl2_2.0.1-1_amd64.deb playerctl_2.0.1-1_amd64.deb
+```
+Also can be built from [source](https://github.com/altdesktop/playerctl).
 
 
 ## Useful links:
