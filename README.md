@@ -112,7 +112,7 @@ Now get rid of your password authentication and restart the server
 
 ## i3 Setup
 This is specifically for i3 setup stuff, but there are some previous sections that start to add things (like, example, `apt install i3`).
-
+Reference: [Alex Booker](https://github.com/bookercodes/setupi3) and his [v](https://www.youtube.com/watch?v=j1I63wGcvU4)i[d](https://www.youtube.com/watch?v=8-S0cWnLBKg)e[o](https://www.youtube.com/watch?v=ARKIwOlazKI)s
 For [playerctl](https://packages.debian.org/buster/playerctl), which I am not entirely sure what it is necessary for/not for, but spotify is the focus:
 ```
 wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
