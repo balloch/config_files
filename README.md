@@ -38,6 +38,8 @@ sudo apt update
 
 ## ZSH And Oh My ZSH
 
+This guide for Windows, and frankly its more refined than my linux one here so its generally a good guide: https://medium.com/@ssharizal/hyper-js-oh-my-zsh-as-ubuntu-on-windows-wsl-terminal-8bf577cdbd97
+
 `sudo apt install zsh`
 
 You may have to log out here. Then: 
