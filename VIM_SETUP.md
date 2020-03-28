@@ -12,7 +12,7 @@ The most important plugins are:
 ## [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe):
 This is for linux. See the linked Gihub for other OS. Lots of steps. Ready your breakfast and eat hearty.
 
-### Pre-install
+### Setup
 ```
 sudo apt update
 apt install build-essential cmake vim python3-dev
@@ -50,4 +50,12 @@ test installation:
 Use it to install node and npm:
 `nvm install node # or 6.14.4, 8.9.1, etc`
 
+## Install  Plugins
+Run `bash $HOME/.vim/pack/install.sh` 
 
+### Compile and install YCM
+```
+cd ~/.vim/pack/ide/start/YouCompleteMe/
+git submodule update --init --recursive
+python install.py --all
+```
