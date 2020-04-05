@@ -44,19 +44,29 @@ function package () {
 (
 set_group ide
 package https://github.com/Valloric/YouCompleteMe &
+package https://github.com/preservim/nerdtree.git & 
+package https://github.com/tomtom/tcomment_vim.git &
 wait
 ) &
 # Post-add actions:
 # cd YouCompleteMe
 # git submodule update --init --recursive && ./install.py --all
 (
+set_group integrations
+package https://tpope.io/vim/fugitive.git &
+package https://github.com/mileszs/ack.vim.git &
+wait
+) &
+(
 set_group syntax
 package https://github.com/tpope/vim-markdown.git &
 package https://github.com/ap/vim-css-color.git &
+package https://github.com/vim-syntastic/syntastic.git &
 wait
 ) &
 (
 set_group colorschemes
+package https://github.com/jnurmine/Zenburn.git &
 package https://github.com/altercation/vim-colors-solarized.git &
 wait
 ) &
