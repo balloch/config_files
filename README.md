@@ -1,6 +1,8 @@
 # configs
 Different custom configuration files and new computer startup
 
+WARNING: If in doubt, skip to CUDA Stuff first
+
 ## Prep
 Install necessities
 
@@ -8,13 +10,18 @@ Install necessities
 Mandatory:
 ```
 sudo apt update
-sudo apt install build-essential python-pip curl wget git xclip openssh-server zip unzip bc imagemagick libjpeg-turbo8-dev feh arandr arc-theme rofi 
+sudo apt install build-essential virtualenv curl wget git xclip openssh-server zip unzip bc imagemagick libjpeg-turbo8-dev ack ag feh arandr arc-theme rofi 
 ```
-possibly optional:
+If you don't have pip (you should):
+`sudo apt install python-pip python3-pip`
+
+Then, go get [Miniconda](https://docs.conda.io/en/latest/miniconda.html), untar, and install:
+`bash Miniconda3-latest-Linux-x86_64.sh`
+
+optional, do not install until later when you know you need/want:
 ```
 sudo apt install lxappearance gnome-tweak-tool libpam0g-dev libxcb-composite0 libxcb-composite0-dev libxcb-image0-dev libxcb-randr0 libxcb-util-dev libxcb-xinerama0 libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-x11-dev libev-dev
 ```
-
 
 ### 14.04 and 16.04 [OLD: no longer being updated]
 ```
@@ -22,7 +29,30 @@ sudo apt update
 sudo apt install build-essential pip pip3 git curl wget xclip openssh-server
 ```
 
-Do Docker separately
+## NVidia and CUDA
+
+**WARNING:** this is the Achilles Heal of this process. Expect it to go poorly. 
+
+First, check what the current highest common CUDA version for both Tensorflow and Pytorch is. At the time of writing, it is (kinda) 10.0 with CuDNN 7. If compatible, [install the latest version of CUDA with a network DEB](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal), it will make everything easier. e.g. 10.2:
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+```
+
+If the latest CUDA version is NOT compatible, install the [RUN version](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal). DEB has more compatibility issues:
+```
+wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run
+sudo sh cuda_10.2.89_440.33.01_linux.run
+```
+
+Now restart your computer twice
+
+## Docker (optional)
 ```
 sudo apt install apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -35,6 +65,9 @@ sudo apt update
 `sudo usermod -aG docker $USER`
 (You will need to log out after this step for docker to work)
 
+## Other Software:
+
+Now go install the software in the Ubuntu Setup
 
 ## ZSH And Oh My ZSH
 
