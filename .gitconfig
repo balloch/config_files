@@ -1,5 +1,6 @@
 [user]
-	email = theincubus313@gmail.com
+	email = jon.balloch@gmail.com
 	name = Jonathan Balloch
 [core]
+	editor = "vim"
 	excludesfile = /home/balloch/.gitignore_global
